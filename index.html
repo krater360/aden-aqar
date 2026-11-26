@@ -429,7 +429,7 @@
             <input type="text" id="sellerPhone" required placeholder="مثال: 77xxxxxxx">
 
             <label for="itemImages">إضافة الصور (ضع كل رابط صورة في سطر أو ارفع من الهاتف)</label>
-            <textarea id="itemImages" rows="3" placeholder="https://krater360.github.io/aden-aqar/images/1.jpg&#10;https://krater360.github.io/aden-aqar/images/2.jpg"></textarea>
+            <textarea id="itemImages" rows="3" placeholder="images/photo1.jpg&#10;images/photo2.jpg"></textarea>
 
             <div style="margin-top:8px; padding:8px; background:#f8fafc; border:1px dashed var(--border); border-radius:8px;">
               <label style="margin-top:0;">رفع صورة أو أكثر مباشرة إلى المستودع (اختياري):</label>
@@ -515,13 +515,13 @@
 <script>
 const DB_URL = "https://krater360-2019f-default-rtdb.firebaseio.com";
 const OWNER_PASSCODE = "9270268911";
-const OATH_KEY = "k360_aden_market_oath_all";
+const OATH_KEY = "aden_sooq_oath_session";
 
-const GH_OWNER = "krater360";
-const GH_REPO = "aden-aqar";
+const GH_ACCOUNT = "krater360";
+const GH_PROJECT = "aden-aqar";
 const GH_BRANCH = "main";
 const GH_FOLDER = "images";
-const GH_TOKEN_KEY = "krater360_gh_token_new";
+const GH_TOKEN_STORAGE = "aden_sooq_gh_token";
 
 let allListings = [];
 let editingItemId = "";
@@ -619,12 +619,12 @@ async function uploadSelectedImagesToGitHub() {
     return;
   }
 
-  let token = String(localStorage.getItem(GH_TOKEN_KEY) || "").replace(/[^A-Za-z0-9_]/g, "").trim();
+  let token = String(localStorage.getItem(GH_TOKEN_STORAGE) || "").replace(/[^A-Za-z0-9_]/g, "").trim();
   if (!token) {
     const entered = prompt("أدخل رمز GitHub Token لرفع الصور:");
     if (!entered) return;
     token = String(entered).replace(/[^A-Za-z0-9_]/g, "").trim();
-    localStorage.setItem(GH_TOKEN_KEY, token);
+    localStorage.setItem(GH_TOKEN_STORAGE, token);
   }
 
   const urls = [];
@@ -633,9 +633,9 @@ async function uploadSelectedImagesToGitHub() {
     msgEl.textContent = `جاري رفع الصورة ${i + 1} من ${fileEl.files.length}...`;
     const base64 = await fileToB64(f);
     const ext = (f.name.split(".").pop() || "jpg").replace(/[^a-zA-Z0-9]/g, "") || "jpg";
-    const name = `${Date.now()}-${i + 1}-aqar.${ext}`;
+    const name = `${Date.now()}-${i + 1}-sooq.${ext}`;
 
-    const res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FOLDER}/${name}`, {
+    const res = await fetch(`https://api.github.com/repos/${GH_ACCOUNT}/${GH_PROJECT}/contents/${GH_FOLDER}/${name}`, {
       method: "PUT",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -645,7 +645,7 @@ async function uploadSelectedImagesToGitHub() {
       body: JSON.stringify({ message: `Upload ${name}`, content: base64, branch: GH_BRANCH })
     });
     if (!res.ok) throw new Error("فشل رفع الصورة");
-    urls.push(`https://${GH_OWNER}.github.io/${GH_REPO}/${GH_FOLDER}/${name}`);
+    urls.push(`${GH_FOLDER}/${name}`);
   }
 
   const existing = imgsEl.value.split(/\n+/).map(s => s.trim()).filter(Boolean);
