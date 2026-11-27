@@ -10,6 +10,7 @@
       --blue2: #1565c0;
       --red: #d32f2f;
       --green: #1b5e20;
+      --amber: #b45309;
       --bg: #eef3fb;
       --card: #ffffff;
       --ink: #0f172a;
@@ -25,11 +26,10 @@
       color: var(--ink);
     }
 
-    /* الواجهة الضخمة العلوية */
     .mega-hero {
       background: linear-gradient(135deg, #07285e 0%, var(--blue) 55%, var(--blue2) 100%);
       color: #ffffff;
-      padding: 28px 16px;
+      padding: 26px 16px;
       border-bottom: 6px solid var(--red);
       box-shadow: 0 10px 28px rgba(7, 40, 94, 0.25);
     }
@@ -44,30 +44,23 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 14px;
     }
     .hero-mega-title {
       margin: 0;
-      font-size: 36px;
+      font-size: 34px;
       font-weight: 900;
       line-height: 1.3;
       text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
     }
     .hero-sub {
-      margin: 8px 0 0;
+      margin: 6px 0 0;
       font-size: 14px;
       color: #e3f2fd;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
     }
     .hero-btn {
       background: rgba(255, 255, 255, 0.16);
       border: 1px solid rgba(255, 255, 255, 0.38);
       color: #ffffff;
-      text-decoration: none;
       padding: 9px 14px;
       border-radius: 9px;
       font-size: 13px;
@@ -76,60 +69,14 @@
     }
     .hero-btn:hover { background: rgba(255, 255, 255, 0.26); }
     @media (max-width: 720px) {
-      .hero-mega-title { font-size: 25px; }
+      .hero-mega-title { font-size: 24px; }
     }
 
-    /* بوابة القسم للجميع */
-    .oath-gate {
-      background: #ffffff;
-      border: 2px solid var(--blue);
-      border-top: 5px solid var(--red);
-      border-radius: 14px;
-      padding: 16px;
-      margin-top: 20px;
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-    }
-    .oath-gate h2 { margin: 0 0 8px; color: var(--blue); font-size: 18px; }
-    .oath-text {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-right: 4px solid var(--red);
-      border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 13px;
-      line-height: 1.8;
-      margin-bottom: 10px;
-      color: var(--ink);
-    }
-    .oath-text strong { color: #991b1b; }
-    .oath-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .oath-row input {
-      flex: 1;
-      min-width: 190px;
-      padding: 9px 11px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 700;
-    }
-    .oath-badge-ok {
-      display: none;
-      margin-top: 8px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: #e8f5e9;
-      color: #1b5e20;
-      font-size: 12px;
-      font-weight: 800;
-    }
-    body.oath-unlocked .oath-badge-ok { display: inline-block; }
-    /* الواجهة المقسومة نصين */
     .split-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
-      margin-top: 20px;
+      margin-top: 22px;
       align-items: start;
     }
     @media (max-width: 820px) {
@@ -170,10 +117,17 @@
     }
     textarea { min-height: 82px; resize: vertical; }
 
+    .field-hint {
+      font-size: 11px;
+      font-weight: 700;
+      color: #991b1b;
+      margin-top: 3px;
+    }
+
     .btn {
       border: none;
       border-radius: 8px;
-      padding: 9px 15px;
+      padding: 9px 14px;
       font-size: 13px;
       font-weight: 800;
       color: #ffffff;
@@ -182,25 +136,10 @@
     .btn-blue { background: var(--blue2); }
     .btn-green { background: var(--green); }
     .btn-red { background: var(--red); }
+    .btn-amber { background: var(--amber); }
     .btn-gray { background: #64748b; }
     .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 
-    .locked-notice {
-      background: #fff8e1;
-      border: 1px dashed #d97706;
-      color: #92400e;
-      border-radius: 10px;
-      padding: 12px;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .oath-gated-body { display: none; }
-    body.oath-unlocked .oath-gated-body { display: block; }
-    body.oath-unlocked .locked-notice { display: none; }
-
-    /* لوحة الرسائل والرد عليها للأدمن */
     .admin-messages-box {
       display: none;
       background: #ffffff;
@@ -219,6 +158,14 @@
       padding: 12px;
       margin-top: 12px;
     }
+    .offer-item-card {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-right: 4px solid var(--amber);
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 12px;
+    }
     .msg-reply-box {
       margin-top: 8px;
       background: #eef6ff;
@@ -229,29 +176,52 @@
       color: #0f172a;
     }
 
-    /* نافذة إرسال رسالة على معروض */
-    .message-modal-backdrop {
+    .modal-backdrop {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.55);
+      background: rgba(15, 23, 42, 0.6);
       z-index: 999;
       align-items: center;
       justify-content: center;
       padding: 14px;
     }
-    .message-modal-backdrop.open { display: flex; }
-    .message-modal-card {
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
       background: #ffffff;
       border-radius: 14px;
-      max-width: 480px;
+      max-width: 500px;
       width: 100%;
       padding: 18px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
       border-top: 4px solid var(--blue);
+      max-height: 90vh;
+      overflow-y: auto;
     }
+    .oath-box-modal {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-right: 4px solid var(--red);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.85;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+    .revealed-phone-box {
+      display: none;
+      margin-top: 12px;
+      background: #e8f5e9;
+      border: 1px solid #86efac;
+      color: #14532d;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 900;
+    }
+    .revealed-phone-box.show { display: block; }
 
-    /* خانة العرض الكبيرة بالأسفل */
     .listings-section { margin-top: 28px; }
     .listings-header {
       display: flex;
@@ -272,7 +242,6 @@
       color: var(--blue);
     }
 
-    /* مربع أبيض كبير لكل معروض مع فاصل سطرين بين كل معروض والآخر */
     .big-white-card {
       background: #ffffff;
       border: 2px solid #cbd5e1;
@@ -310,9 +279,30 @@
       font-weight: 800;
     }
     .date-tag { font-size: 12px; color: var(--muted); font-weight: 700; }
+    .admin-views-tag {
+      display: none;
+      background: #eef6ff;
+      color: var(--blue);
+      border: 1px solid #bfdbfe;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    body.owner-admin-mode .admin-views-tag { display: inline-block; }
+
     .item-main-title { margin: 0 0 8px; font-size: 20px; font-weight: 900; color: var(--ink); }
     .item-meta-line { font-size: 14px; color: #334155; margin-bottom: 8px; font-weight: 700; }
     .item-price-highlight { font-size: 16px; font-weight: 900; color: var(--green); margin-bottom: 10px; }
+
+    .more-details-panel {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed #cbd5e1;
+    }
+    .big-white-card.expanded .more-details-panel { display: block; }
+
     .item-specs {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -362,123 +352,93 @@
           <h1 class="hero-mega-title">سوق عدن للعقارات والسيارات</h1>
           <p class="hero-sub">منصة مستقلة لعرض وطلب العقارات والسيارات وغيرها</p>
         </div>
-        <div class="hero-actions">
+        <div>
           <button type="button" class="hero-btn" onclick="toggleOwnerAdmin()">إدارة وتعديل</button>
         </div>
       </div>
-
-      <!-- بوابة القسم الإلزامية للجميع -->
-      <section class="oath-gate" id="oathGate">
-        <h2>القسم والالتزام الإلزامي للجميع</h2>
-        <div class="oath-text">
-          أقسم بالله العظيم أنني ملتزم بدفع حق الموقع وقدره <strong>100 ريال سعودي</strong> في حال تمت البيعة.
-          الدخول لاستخدام الإضافة أو البحث أو إرسال الرسائل يتطلب كتابة عبارة: <strong>أقسم بالله</strong>.
-        </div>
-        <div class="oath-row">
-          <input type="text" id="oathInput" placeholder="اكتب: أقسم بالله">
-          <button type="button" class="btn btn-blue" onclick="checkOathUnlock()">أداء القسم والدخول</button>
-          <button type="button" class="btn btn-gray" onclick="lockOathGate()">إقفال</button>
-        </div>
-        <div class="oath-badge-ok">تم أداء القسم — جميع خدمات الإضافة والبحث والرسائل مفتوحة</div>
-        <div id="oathStatus" style="margin-top:6px; font-size:12px; font-weight:800; color:#c62828;"></div>
-      </section>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- قسم إدارة الرسائل والرد عليها عبر الأدمن -->
     <section class="admin-messages-box" id="adminMessagesPanel">
       <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-        <h2 style="margin:0; color:var(--blue); font-size:18px;">رسائل المعروضات والرد عليها (أدمن)</h2>
-        <button type="button" class="btn btn-blue" onclick="loadAqarMessages()">تحديث الرسائل</button>
+        <h2 style="margin:0; color:var(--blue); font-size:18px;">لوحة الأدمن: الرسائل والأسعار المطروحة</h2>
+        <button type="button" class="btn btn-blue" onclick="loadAdminData()">تحديث البيانات</button>
       </div>
-      <div id="aqarMessagesList">جاري تحميل الرسائل...</div>
+      <div id="aqarOffersList" style="margin-top:10px;">جاري تحميل الأسعار المطروحة...</div>
+      <div id="aqarMessagesList" style="margin-top:14px;">جاري تحميل الرسائل...</div>
     </section>
 
-    <!-- واجهة مقسومة نصين -->
     <div class="split-grid">
-      <!-- النصف الأول: إضافة إعلان عقار أو سيارة أو غيرها -->
       <section class="panel-box">
         <h2>إضافة إعلان (عقار / سيارة / أخرى)</h2>
-        <div class="locked-notice">
-          يجب أداء القسم وكتابة (أقسم بالله) في الأعلى أولاً لفتح خانة الإضافة.
-        </div>
+        <form id="itemForm" onsubmit="saveListingItem(event)">
+          <label for="itemName">اسم العقار أو السيارة أو غيرها (بدون أرقام)</label>
+          <input type="text" id="itemName" required placeholder="مثال: أرض في المنصورة أو سيارة كورولا" oninput="blockDigitsInField(this, 'nameDigitWarn')">
+          <div id="nameDigitWarn" class="field-hint"></div>
 
-        <div class="oath-gated-body" id="addFormContainer">
-          <form id="itemForm" onsubmit="saveListingItem(event)">
-            <label for="itemName">اسم العقار أو السيارة أو غيرها</label>
-            <input type="text" id="itemName" required placeholder="مثال: أرض في المنصورة أو سيارة كورولا">
+          <label for="itemLocation">الموقع (بدون أرقام)</label>
+          <input type="text" id="itemLocation" required placeholder="مثال: عدن - الشيخ عثمان" oninput="blockDigitsInField(this, 'locDigitWarn')">
+          <div id="locDigitWarn" class="field-hint"></div>
 
-            <label for="itemLocation">الموقع</label>
-            <input type="text" id="itemLocation" required placeholder="مثال: عدن - الشيخ عثمان">
+          <label for="itemSpecs">المواصفات (بدون أرقام)</label>
+          <textarea id="itemSpecs" required placeholder="اكتب المساحة أو الموديل والحالة والمواصفات كتابةً دون أرقام..." oninput="blockDigitsInField(this, 'specsDigitWarn')"></textarea>
+          <div id="specsDigitWarn" class="field-hint"></div>
 
-            <label for="itemSpecs">المواصفات</label>
-            <textarea id="itemSpecs" required placeholder="اكتب المساحة أو الموديل والحالة وكافة المواصفات..."></textarea>
+          <label for="itemType">النوع (إيجار أو بيع أو أخرى)</label>
+          <select id="itemType" required>
+            <option value="بيع">بيع</option>
+            <option value="إيجار">إيجار</option>
+            <option value="أخرى">أخرى</option>
+          </select>
 
-            <label for="itemType">النوع (إيجار أو بيع أو أخرى)</label>
-            <select id="itemType" required>
-              <option value="بيع">بيع</option>
-              <option value="إيجار">إيجار</option>
-              <option value="أخرى">أخرى</option>
-            </select>
+          <label for="itemPrice">المبلغ المعروض به</label>
+          <input type="text" id="itemPrice" required placeholder="مثال: 950,000 أو 4,500,000">
 
-            <label for="itemPrice">المبلغ المعروض به</label>
-            <input type="text" id="itemPrice" required placeholder="مثال: 950,000 أو 4,500,000">
+          <label for="sellerPhone">رقم المعلن (شرط أساسي لإضافة الإعلان — لا يظهر في الإعلان)</label>
+          <input type="tel" id="sellerPhone" required placeholder="مثال: 771234567">
 
-            <label for="sellerPhone">رقم البائع</label>
-            <input type="text" id="sellerPhone" required placeholder="مثال: 77xxxxxxx">
+          <label for="itemImages">صور العقار (عدة صور — ضع كل رابط في سطر أو اختر عدة صور من الهاتف)</label>
+          <textarea id="itemImages" rows="3" placeholder="images/photo1.jpg&#10;images/photo2.jpg"></textarea>
 
-            <label for="itemImages">إضافة الصور (ضع كل رابط صورة في سطر أو ارفع من الهاتف)</label>
-            <textarea id="itemImages" rows="3" placeholder="images/photo1.jpg&#10;images/photo2.jpg"></textarea>
+          <div style="margin-top:8px; padding:8px; background:#f8fafc; border:1px dashed var(--border); border-radius:8px;">
+            <label style="margin-top:0;">تحميل عدة صور للعقار من الجهاز:</label>
+            <input type="file" id="itemFileUpload" accept="image/*" multiple>
+            <button type="button" class="btn btn-blue" style="margin-top:6px;" onclick="uploadSelectedImagesToGitHub()">تحميل الصور المختارة</button>
+            <div id="uploadMsg" style="margin-top:4px; font-size:12px; font-weight:700; color:var(--blue);"></div>
+          </div>
 
-            <div style="margin-top:8px; padding:8px; background:#f8fafc; border:1px dashed var(--border); border-radius:8px;">
-              <label style="margin-top:0;">رفع صورة أو أكثر مباشرة إلى المستودع (اختياري):</label>
-              <input type="file" id="itemFileUpload" accept="image/*" multiple>
-              <button type="button" class="btn btn-blue" style="margin-top:6px;" onclick="uploadSelectedImagesToGitHub()">رفع الصور المختارة</button>
-              <div id="uploadMsg" style="margin-top:4px; font-size:12px; font-weight:700; color:var(--blue);"></div>
-            </div>
-
-            <div class="btn-row">
-              <button type="submit" class="btn btn-green" id="saveItemBtn">حفظ ونشر المعروض</button>
-              <button type="button" class="btn btn-gray" onclick="cancelEditItem()">إلغاء التعديل</button>
-            </div>
-            <div id="itemSaveMsg" style="margin-top:8px; font-size:13px; font-weight:800;"></div>
-          </form>
-        </div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-green" id="saveItemBtn">حفظ ونشر المعروض</button>
+            <button type="button" class="btn btn-gray" onclick="cancelEditItem()">إلغاء التعديل</button>
+          </div>
+          <div id="itemSaveMsg" style="margin-top:8px; font-size:13px; font-weight:800;"></div>
+        </form>
       </section>
-
-      <!-- النصف الثاني: البحث عن عقار أو سيارة وتحديد السعر المراد الشراء به -->
       <section class="panel-box search-side">
         <h2>البحث عن عقار أو سيارة وطلب الشراء</h2>
-        <div class="locked-notice">
-          يجب أداء القسم وكتابة (أقسم بالله) في الأعلى أولاً لفتح خانة البحث.
-        </div>
+        <form id="searchBuyForm" onsubmit="applySearchAndSaveRequest(event)">
+          <label for="searchName">اسم العقار أو السيارة المطلوبة</label>
+          <input type="text" id="searchName" placeholder="مثال: شقة، أرض، باص، هايلوكس...">
 
-        <div class="oath-gated-body" id="searchFormContainer">
-          <form id="searchBuyForm" onsubmit="applySearchAndSaveRequest(event)">
-            <label for="searchName">اسم العقار أو السيارة المطلوبة</label>
-            <input type="text" id="searchName" placeholder="مثال: شقة، أرض، باص، هايلوكس...">
+          <label for="searchLocation">الموقع المطلوب</label>
+          <input type="text" id="searchLocation" placeholder="مثال: عدن - خورمكسر أو كريتر">
 
-            <label for="searchLocation">الموقع المطلوب</label>
-            <input type="text" id="searchLocation" placeholder="مثال: عدن - خورمكسر أو كريتر">
+          <label for="searchSpecs">المواصفات المطلوبة</label>
+          <textarea id="searchSpecs" placeholder="اكتب المواصفات التي تبحث عنها..."></textarea>
 
-            <label for="searchSpecs">المواصفات المطلوبة</label>
-            <textarea id="searchSpecs" placeholder="اكتب المواصفات التي تبحث عنها..."></textarea>
+          <label for="targetBuyPrice">السعر المراد الشراء به</label>
+          <input type="text" id="targetBuyPrice" placeholder="مثال: 1,500,000 أو حد أقصى 3,000,000">
 
-            <label for="targetBuyPrice">السعر المراد الشراء به</label>
-            <input type="text" id="targetBuyPrice" placeholder="مثال: 1,500,000 أو حد أقصى 3,000,000">
-
-            <div class="btn-row">
-              <button type="submit" class="btn btn-red">بحث وتصفية المعروضات</button>
-              <button type="button" class="btn btn-gray" onclick="resetSearchFilters()">عرض الكل</button>
-            </div>
-            <div id="searchStatusMsg" style="margin-top:8px; font-size:12px; font-weight:800; color:#0d47a1;"></div>
-          </form>
-        </div>
+          <div class="btn-row">
+            <button type="submit" class="btn btn-red">بحث وتصفية المعروضات</button>
+            <button type="button" class="btn btn-gray" onclick="resetSearchFilters()">عرض الكل</button>
+          </div>
+          <div id="searchStatusMsg" style="margin-top:8px; font-size:12px; font-weight:800; color:#0d47a1;"></div>
+        </form>
       </section>
     </div>
 
-    <!-- خانة العرض الكبيرة بالأسفل -->
     <section class="listings-section">
       <div class="listings-header">
         <h2>المعروضات في السوق</h2>
@@ -490,9 +450,54 @@
     </section>
   </main>
 
+  <!-- نافذة القسم لمعرفة رقم المعلن -->
+  <div class="modal-backdrop" id="phoneOathModal">
+    <div class="modal-card">
+      <h3 style="margin:0 0 8px; color:var(--red);">القسم لمعرفة رقم المعلن</h3>
+      <div id="phoneOathItemTitle" style="font-size:13px; font-weight:800; color:#334155; margin-bottom:10px;"></div>
+      <div class="oath-box-modal">
+        أقسم بالله العظيم أنني ملتزم بدفع <strong>100 ريال سعودي</strong> إذا تمت الصفقة عبر رقم الحساب في <strong>بنك عدن الأول: 22846</strong>.<br>
+        لكشف رقم المعلن، اكتب عبارة: <strong>أقسم بالله</strong>.
+      </div>
+      <label for="phoneOathInput">اكتب عبارة القسم</label>
+      <input type="text" id="phoneOathInput" placeholder="أقسم بالله">
+      <div class="btn-row">
+        <button type="button" class="btn btn-green" onclick="revealSellerPhoneWithOath()">إظهار رقم المعلن</button>
+        <button type="button" class="btn btn-gray" onclick="closePhoneOathModal()">إغلاق</button>
+      </div>
+      <div id="phoneOathError" style="margin-top:8px; font-size:12px; font-weight:800; color:#c62828;"></div>
+      <div id="revealedPhoneBox" class="revealed-phone-box"></div>
+    </div>
+  </div>
+
+  <!-- نافذة طرح قيمة العقار -->
+  <div class="modal-backdrop" id="offerPriceModal">
+    <div class="modal-card">
+      <h3 style="margin:0 0 6px; color:var(--amber);">طرح قيمة العقار / المعروض</h3>
+      <div id="offerModalItemTitle" style="font-size:13px; font-weight:800; color:#475569; margin-bottom:10px;"></div>
+      <form onsubmit="submitOfferedPrice(event)">
+        <input type="hidden" id="offerTargetItemId">
+        <input type="hidden" id="offerTargetItemName">
+        <label for="offererName">اسمك</label>
+        <input type="text" id="offererName" required placeholder="اكتب اسمك">
+        <label for="offererPhone">رقم تواصلك</label>
+        <input type="tel" id="offererPhone" required placeholder="مثال: 77xxxxxxx">
+        <label for="offeredPriceValue">القيمة المطروحة</label>
+        <input type="text" id="offeredPriceValue" required placeholder="اكتب المبلغ الذي تطرحه">
+        <label for="offerNotes">ملاحظة (اختياري)</label>
+        <textarea id="offerNotes" rows="2" placeholder="أي تفاصيل إضافية حول السعر أو الدفع..."></textarea>
+        <div class="btn-row">
+          <button type="submit" class="btn btn-amber">إرسال القيمة المطروحة</button>
+          <button type="button" class="btn btn-gray" onclick="closeOfferPriceModal()">إغلاق</button>
+        </div>
+        <div id="offerPriceStatus" style="margin-top:8px; font-size:12px; font-weight:800;"></div>
+      </form>
+    </div>
+  </div>
+
   <!-- نافذة إرسال رسالة على معروض -->
-  <div class="message-modal-backdrop" id="sendMsgModal">
-    <div class="message-modal-card">
+  <div class="modal-backdrop" id="sendMsgModal">
+    <div class="modal-card">
       <h3 style="margin:0 0 6px; color:var(--blue);">إرسال رسالة حول المعروض</h3>
       <div id="modalItemTitle" style="font-size:13px; font-weight:800; color:#475569; margin-bottom:10px;"></div>
       <form onsubmit="submitItemMessage(event)">
@@ -515,7 +520,6 @@
 <script>
 const DB_URL = "https://krater360-2019f-default-rtdb.firebaseio.com";
 const OWNER_PASSCODE = "9270268911";
-const OATH_KEY = "aden_sooq_oath_session";
 
 const GH_ACCOUNT = "krater360";
 const GH_PROJECT = "aden-aqar";
@@ -525,6 +529,8 @@ const GH_TOKEN_STORAGE = "aden_sooq_gh_token";
 
 let allListings = [];
 let editingItemId = "";
+let currentPhoneModalItem = null;
+const expandedCardsSet = new Set();
 
 function normalizeArabic(str) {
   return String(str || "")
@@ -544,6 +550,24 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+function hasAnyDigit(str) {
+  return /[0-9٠-٩]/.test(String(str || ""));
+}
+
+function stripAllDigits(str) {
+  return String(str || "").replace(/[0-9٠-٩]/g, "");
+}
+
+function blockDigitsInField(el, warnId) {
+  const warnEl = document.getElementById(warnId);
+  if (hasAnyDigit(el.value)) {
+    el.value = stripAllDigits(el.value);
+    if (warnEl) warnEl.textContent = "يُمنع كتابة أي أرقام داخل نص الإعلان.";
+  } else if (warnEl) {
+    warnEl.textContent = "";
+  }
+}
+
 function getTodayDateText() {
   try {
     return new Date().toLocaleDateString("ar-YE", { timeZone: "Asia/Aden" });
@@ -552,51 +576,26 @@ function getTodayDateText() {
   }
 }
 
-function isEveryoneOathUnlocked() {
-  return sessionStorage.getItem(OATH_KEY) === "1" || document.body.classList.contains("owner-admin-mode");
-}
-
-function requireOathOrPrompt(customMsg = "يجب أداء القسم وكتابة (أقسم بالله) أولاً") {
-  if (isEveryoneOathUnlocked()) return true;
-  alert(customMsg);
-  const gate = document.getElementById("oathGate");
-  if (gate) gate.scrollIntoView({ behavior: "smooth" });
-  return false;
-}
-
-function checkOathUnlock() {
-  const input = document.getElementById("oathInput");
-  const status = document.getElementById("oathStatus");
-  if (normalizeArabic(input.value) === "اقسم بالله") {
-    sessionStorage.setItem(OATH_KEY, "1");
-    document.body.classList.add("oath-unlocked");
-    status.textContent = "";
-  } else {
-    status.textContent = "اكتب كلمة (أقسم بالله) بشكل صحيح للدخول.";
-  }
-}
-
-function lockOathGate() {
-  sessionStorage.removeItem(OATH_KEY);
-  document.body.classList.remove("oath-unlocked");
-  document.getElementById("oathInput").value = "";
-  resetSearchFilters();
-}
-
 function toggleOwnerAdmin() {
   if (document.body.classList.contains("owner-admin-mode")) {
     document.body.classList.remove("owner-admin-mode");
+    renderListingsList(allListings);
     return;
   }
   const code = prompt("أدخل رمز الأدمن للتعديل والحذف والرد على الرسائل:");
   if (code === OWNER_PASSCODE) {
     document.body.classList.add("owner-admin-mode");
-    document.body.classList.add("oath-unlocked");
-    loadAqarMessages();
+    loadAdminData();
+    renderListingsList(allListings);
     alert("تم تفعيل وضع الأدمن");
   } else if (code !== null) {
     alert("الرمز غير صحيح");
   }
+}
+
+function loadAdminData() {
+  loadAqarMessages();
+  loadAqarOffers();
 }
 
 function fileToB64(file) {
@@ -609,7 +608,6 @@ function fileToB64(file) {
 }
 
 async function uploadSelectedImagesToGitHub() {
-  if (!requireOathOrPrompt("يجب أداء القسم بكتابة (أقسم بالله) أولاً")) return;
   const fileEl = document.getElementById("itemFileUpload");
   const imgsEl = document.getElementById("itemImages");
   const msgEl = document.getElementById("uploadMsg");
@@ -630,7 +628,7 @@ async function uploadSelectedImagesToGitHub() {
   const urls = [];
   for (let i = 0; i < fileEl.files.length; i++) {
     const f = fileEl.files[i];
-    msgEl.textContent = `جاري رفع الصورة ${i + 1} من ${fileEl.files.length}...`;
+    msgEl.textContent = `جاري تحميل الصورة ${i + 1} من ${fileEl.files.length}...`;
     const base64 = await fileToB64(f);
     const ext = (f.name.split(".").pop() || "jpg").replace(/[^a-zA-Z0-9]/g, "") || "jpg";
     const name = `${Date.now()}-${i + 1}-sooq.${ext}`;
@@ -651,22 +649,44 @@ async function uploadSelectedImagesToGitHub() {
   const existing = imgsEl.value.split(/\n+/).map(s => s.trim()).filter(Boolean);
   imgsEl.value = existing.concat(urls).join("\n");
   fileEl.value = "";
-  msgEl.textContent = `تم رفع ${urls.length} صورة بنجاح.`;
+  msgEl.textContent = `تم تحميل ${urls.length} صورة بنجاح.`;
 }
 
 function saveListingItem(event) {
   event.preventDefault();
-  if (!requireOathOrPrompt("يرجى أداء القسم بكتابة (أقسم بالله) أولاً")) return;
 
-  const name = document.getElementById("itemName").value.trim();
-  const location = document.getElementById("itemLocation").value.trim();
-  const specs = document.getElementById("itemSpecs").value.trim();
+  const nameEl = document.getElementById("itemName");
+  const locEl = document.getElementById("itemLocation");
+  const specsEl = document.getElementById("itemSpecs");
+  const phoneEl = document.getElementById("sellerPhone");
+
+  blockDigitsInField(nameEl, "nameDigitWarn");
+  blockDigitsInField(locEl, "locDigitWarn");
+  blockDigitsInField(specsEl, "specsDigitWarn");
+
+  const name = nameEl.value.trim();
+  const location = locEl.value.trim();
+  const specs = specsEl.value.trim();
   const type = document.getElementById("itemType").value;
   const price = document.getElementById("itemPrice").value.trim();
-  const phone = document.getElementById("sellerPhone").value.trim();
+  const phone = phoneEl.value.trim();
   const images = document.getElementById("itemImages").value.split(/\n+/).map(u => u.trim()).filter(Boolean);
 
   const msgEl = document.getElementById("itemSaveMsg");
+
+  if (!phone) {
+    msgEl.style.color = "#c62828";
+    msgEl.textContent = "رقم المعلن شرط أساسي لإضافة الإعلان.";
+    phoneEl.focus();
+    return;
+  }
+
+  if (hasAnyDigit(name) || hasAnyDigit(location) || hasAnyDigit(specs)) {
+    msgEl.style.color = "#c62828";
+    msgEl.textContent = "يُمنع كتابة أي أرقام في الاسم أو الموقع أو المواصفات.";
+    return;
+  }
+
   const btnEl = document.getElementById("saveItemBtn");
   btnEl.disabled = true;
   msgEl.style.color = "#0f4e9a";
@@ -683,6 +703,7 @@ function saveListingItem(event) {
     price,
     phone,
     images,
+    views: Number(existingItem?.views || 0),
     dateText: existingItem?.dateText || getTodayDateText(),
     createdAt: existingItem?.createdAt || Date.now(),
     updatedAt: Date.now()
@@ -698,7 +719,7 @@ function saveListingItem(event) {
       document.getElementById("itemForm").reset();
       editingItemId = "";
       msgEl.style.color = "#1b5e20";
-      msgEl.textContent = "تم حفظ المعروض بنجاح.";
+      msgEl.textContent = "تم حفظ ونشر المعروض بنجاح.";
       loadListings();
     })
     .catch(() => {
@@ -712,17 +733,16 @@ function startEditItem(id) {
   const item = allListings.find(x => x.id === id);
   if (!item) return;
   editingItemId = item.id;
-  document.body.classList.add("oath-unlocked");
-  document.getElementById("itemName").value = item.name || "";
-  document.getElementById("itemLocation").value = item.location || "";
-  document.getElementById("itemSpecs").value = item.specs || "";
+  document.getElementById("itemName").value = stripAllDigits(item.name || "");
+  document.getElementById("itemLocation").value = stripAllDigits(item.location || "");
+  document.getElementById("itemSpecs").value = stripAllDigits(item.specs || "");
   document.getElementById("itemType").value = item.type || "بيع";
   document.getElementById("itemPrice").value = item.price || "";
   document.getElementById("sellerPhone").value = item.phone || "";
   document.getElementById("itemImages").value = (item.images || []).join("\n");
   document.getElementById("itemSaveMsg").style.color = "#0d47a1";
   document.getElementById("itemSaveMsg").textContent = "وضع تعديل المعروض نشط — اضغط حفظ ونشر المعروض لتأكيد التعديل.";
-  window.scrollTo({ top: 180, behavior: "smooth" });
+  window.scrollTo({ top: 120, behavior: "smooth" });
 }
 
 function cancelEditItem() {
@@ -732,14 +752,145 @@ function cancelEditItem() {
 }
 
 function deleteItemById(id) {
-  if (!confirm("هل تريد حذف هذا المعروض نهائياً؟")) return;
+  if (!confirm("هل تريد حذف هذا الإعلان نهائياً؟")) return;
   fetch(`${DB_URL}/marketItems/${encodeURIComponent(id)}.json`, { method: "DELETE" })
-    .then(() => loadListings())
-    .catch(() => alert("تعذر حذف المعروض"));
+    .then(() => {
+      expandedCardsSet.delete(id);
+      loadListings();
+    })
+    .catch(() => alert("تعذر حذف الإعلان"));
+}
+
+function openPhoneOathModal(itemId) {
+  const item = allListings.find(x => x.id === itemId);
+  if (!item) return;
+  currentPhoneModalItem = item;
+  document.getElementById("phoneOathItemTitle").textContent = "المعروض: " + (item.name || "");
+  document.getElementById("phoneOathInput").value = "";
+  document.getElementById("phoneOathError").textContent = "";
+  const box = document.getElementById("revealedPhoneBox");
+  box.classList.remove("show");
+  box.innerHTML = "";
+  document.getElementById("phoneOathModal").classList.add("open");
+}
+
+function closePhoneOathModal() {
+  currentPhoneModalItem = null;
+  document.getElementById("phoneOathModal").classList.remove("open");
+}
+
+function revealSellerPhoneWithOath() {
+  if (!currentPhoneModalItem) return;
+  const val = normalizeArabic(document.getElementById("phoneOathInput").value);
+  const errEl = document.getElementById("phoneOathError");
+  const box = document.getElementById("revealedPhoneBox");
+
+  if (val !== "اقسم بالله") {
+    errEl.textContent = "يرجى كتابة عبارة (أقسم بالله) بشكل صحيح لإظهار رقم المعلن.";
+    box.classList.remove("show");
+    return;
+  }
+
+  errEl.textContent = "";
+  box.innerHTML = `رقم المعلن: <span style="user-select:all;">${escapeHtml(currentPhoneModalItem.phone || "غير متوفر")}</span>`;
+  box.classList.add("show");
+}
+function openOfferPriceModal(itemId, itemTitle) {
+  document.getElementById("offerTargetItemId").value = itemId || "";
+  document.getElementById("offerTargetItemName").value = itemTitle || "";
+  document.getElementById("offerModalItemTitle").textContent = "المعروض: " + (itemTitle || "");
+  document.getElementById("offerPriceStatus").textContent = "";
+  document.getElementById("offerPriceModal").classList.add("open");
+}
+
+function closeOfferPriceModal() {
+  document.getElementById("offerPriceModal").classList.remove("open");
+}
+
+function submitOfferedPrice(event) {
+  event.preventDefault();
+  const itemId = document.getElementById("offerTargetItemId").value;
+  const itemTitle = document.getElementById("offerTargetItemName").value;
+  const offererName = document.getElementById("offererName").value.trim();
+  const offererPhone = document.getElementById("offererPhone").value.trim();
+  const offeredPrice = document.getElementById("offeredPriceValue").value.trim();
+  const notes = document.getElementById("offerNotes").value.trim();
+  const statusEl = document.getElementById("offerPriceStatus");
+
+  const offerId = "aqaroffer-" + Date.now();
+  const payload = {
+    id: offerId,
+    itemId,
+    itemTitle,
+    offererName,
+    offererPhone,
+    offeredPrice,
+    notes,
+    sentAt: Date.now()
+  };
+
+  fetch(`${DB_URL}/aqarOffers/${encodeURIComponent(offerId)}.json`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+    .then(r => {
+      if (!r.ok) throw new Error();
+      statusEl.style.color = "#1b5e20";
+      statusEl.textContent = "تم تسجيل القيمة المطروحة بنجاح.";
+      setTimeout(() => {
+        closeOfferPriceModal();
+        document.getElementById("offererName").value = "";
+        document.getElementById("offererPhone").value = "";
+        document.getElementById("offeredPriceValue").value = "";
+        document.getElementById("offerNotes").value = "";
+        if (document.body.classList.contains("owner-admin-mode")) loadAqarOffers();
+      }, 600);
+    })
+    .catch(() => {
+      statusEl.style.color = "#c62828";
+      statusEl.textContent = "تعذر إرسال القيمة المطروحة.";
+    });
+}
+
+function loadAqarOffers() {
+  const box = document.getElementById("aqarOffersList");
+  if (!box) return;
+  fetch(`${DB_URL}/aqarOffers.json`)
+    .then(r => r.json())
+    .then(data => {
+      if (!data || typeof data !== "object") {
+        box.innerHTML = "<p style='color:#64748b; font-size:13px;'>لا توجد أسعار مطروحة حالياً.</p>";
+        return;
+      }
+      const list = Object.entries(data)
+        .map(([k, v]) => ({ ...(v || {}), id: (v && v.id) || k }))
+        .sort((a, b) => (b.sentAt || 0) - (a.sentAt || 0));
+
+      box.innerHTML = `<h3 style="margin:6px 0; color:var(--amber); font-size:15px;">القيم والأسعار المطروحة (${list.length})</h3>` + list.map(o => `
+        <div class="offer-item-card">
+          <div style="font-weight:800; color:#92400e;">${escapeHtml(o.offererName || "مقدم عرض")} — <span style="font-size:12px;">${escapeHtml(o.offererPhone || "")}</span></div>
+          <div style="font-size:12px; font-weight:700; color:#334155; margin:3px 0;">المعروض: ${escapeHtml(o.itemTitle || "")}</div>
+          <div style="font-size:14px; font-weight:900; color:var(--green);">القيمة المطروحة: ${escapeHtml(o.offeredPrice || "")}</div>
+          ${o.notes ? `<p style="margin:6px 0 0; font-size:13px;">${escapeHtml(o.notes)}</p>` : ""}
+          <div class="btn-row" style="margin-top:8px;">
+            <button type="button" class="btn btn-red" onclick="deleteAqarOffer('${escapeHtml(o.id)}')">حذف</button>
+          </div>
+        </div>
+      `).join("");
+    })
+    .catch(() => {
+      box.innerHTML = "<p style='color:#c62828; font-size:13px;'>تعذر تحميل الأسعار المطروحة.</p>";
+    });
+}
+
+function deleteAqarOffer(offerId) {
+  if (!confirm("هل تريد حذف هذا العرض السعري؟")) return;
+  fetch(`${DB_URL}/aqarOffers/${encodeURIComponent(offerId)}.json`, { method: "DELETE" })
+    .then(() => loadAqarOffers());
 }
 
 function openSendMessageModal(itemId, itemTitle) {
-  if (!requireOathOrPrompt("يجب أداء القسم وكتابة (أقسم بالله) قبل إرسال رسالة")) return;
   document.getElementById("msgTargetItemId").value = itemId || "";
   document.getElementById("msgTargetItemName").value = itemTitle || "";
   document.getElementById("modalItemTitle").textContent = "المعروض: " + (itemTitle || "");
@@ -753,8 +904,6 @@ function closeSendMessageModal() {
 
 function submitItemMessage(event) {
   event.preventDefault();
-  if (!requireOathOrPrompt("يجب أداء القسم وكتابة (أقسم بالله) قبل إرسال رسالة")) return;
-
   const itemId = document.getElementById("msgTargetItemId").value;
   const itemTitle = document.getElementById("msgTargetItemName").value;
   const senderName = document.getElementById("visitorMsgName").value.trim();
@@ -811,7 +960,7 @@ function loadAqarMessages() {
         .map(([k, v]) => ({ ...(v || {}), id: (v && v.id) || k }))
         .sort((a, b) => (b.sentAt || 0) - (a.sentAt || 0));
 
-      box.innerHTML = list.map(m => {
+      box.innerHTML = `<h3 style="margin:6px 0; color:var(--blue); font-size:15px;">الرسائل (${list.length})</h3>` + list.map(m => {
         const replyHtml = m.adminReply
           ? `<div class="msg-reply-box"><strong>رد الأدمن:</strong> ${escapeHtml(m.adminReply)}</div>`
           : "";
@@ -867,8 +1016,6 @@ function parseNumericPrice(val) {
 
 function applySearchAndSaveRequest(event) {
   event.preventDefault();
-  if (!requireOathOrPrompt("يجب أداء القسم وكتابة (أقسم بالله) قبل استخدام البحث")) return;
-
   const qName = normalizeArabic(document.getElementById("searchName").value);
   const qLoc = normalizeArabic(document.getElementById("searchLocation").value);
   const qSpecs = normalizeArabic(document.getElementById("searchSpecs").value);
@@ -894,6 +1041,35 @@ function resetSearchFilters() {
   renderListingsList(allListings);
 }
 
+function toggleMoreDetails(itemId) {
+  const cardEl = document.getElementById("card-" + itemId);
+  const btnEl = document.getElementById("moreBtn-" + itemId);
+  const item = allListings.find(x => x.id === itemId);
+  if (!cardEl || !item) return;
+
+  const isCurrentlyExpanded = expandedCardsSet.has(itemId);
+  if (isCurrentlyExpanded) {
+    expandedCardsSet.delete(itemId);
+    cardEl.classList.remove("expanded");
+    if (btnEl) btnEl.textContent = "المزيد";
+  } else {
+    expandedCardsSet.add(itemId);
+    cardEl.classList.add("expanded");
+    if (btnEl) btnEl.textContent = "إخفاء التفاصيل";
+
+    const nextViews = Number(item.views || 0) + 1;
+    item.views = nextViews;
+    const viewsBadge = document.getElementById("viewsBadge-" + itemId);
+    if (viewsBadge) viewsBadge.textContent = `المشاهدات: ${nextViews}`;
+
+    fetch(`${DB_URL}/marketItems/${encodeURIComponent(itemId)}/views.json`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nextViews)
+    }).catch(() => {});
+  }
+}
+
 function renderListingsList(list) {
   const container = document.getElementById("listingsContainer");
   const countEl = document.getElementById("totalItemsCount");
@@ -906,30 +1082,43 @@ function renderListingsList(list) {
 
   container.innerHTML = list.map((item, idx) => {
     const serialNumber = item.serialNumber || (idx + 1);
+    const viewsCount = Number(item.views || 0);
+    const isExpanded = expandedCardsSet.has(item.id);
     const imgs = Array.isArray(item.images) ? item.images : [];
     const photosHtml = imgs.length
-      ? `<div class="item-photos">${imgs.map(url => `<img src="${escapeHtml(url)}" alt="${escapeHtml(item.name)}" onclick="window.open(this.src, '_blank')">`).join("")}</div>`
-      : "";
+      ? `<div class="item-photos">${imgs.map(url => `<img src="${escapeHtml(url)}" alt="${escapeHtml(stripAllDigits(item.name || ""))}" onclick="window.open(this.src, '_blank')">`).join("")}</div>`
+      : "<p style='font-size:13px; color:#64748b; margin:6px 0 10px;'>لا توجد صور مرفقة لهذا الإعلان.</p>";
+
+    const safeTitle = escapeHtml(stripAllDigits(item.name || ""));
+    const safeLocation = escapeHtml(stripAllDigits(item.location || ""));
+    const safeSpecs = escapeHtml(stripAllDigits(item.specs || ""));
 
     return `
-      <article class="big-white-card" id="${escapeHtml(item.id)}">
+      <article class="big-white-card ${isExpanded ? "expanded" : ""}" id="card-${escapeHtml(item.id)}">
         <div class="card-top">
           <span class="serial-tag">رقم المعروض: #${serialNumber}</span>
           <span class="type-tag">النوع: ${escapeHtml(item.type || "بيع")}</span>
           <span class="date-tag">التاريخ: ${escapeHtml(item.dateText || "")}</span>
+          <span class="admin-views-tag" id="viewsBadge-${escapeHtml(item.id)}">المشاهدات: ${viewsCount}</span>
         </div>
 
-        <h3 class="item-main-title">${escapeHtml(item.name || "")}</h3>
-        <div class="item-meta-line">الموقع: ${escapeHtml(item.location || "")}</div>
+        <h3 class="item-main-title">${safeTitle}</h3>
         <div class="item-price-highlight">المبلغ المعروض به: ${escapeHtml(item.price || "")}</div>
 
-        <div class="item-specs">${escapeHtml(item.specs || "")}</div>
-        ${photosHtml}
+        <button type="button" class="btn btn-blue" id="moreBtn-${escapeHtml(item.id)}" onclick="toggleMoreDetails('${escapeHtml(item.id)}')">${isExpanded ? "إخفاء التفاصيل" : "المزيد"}</button>
+
+        <div class="more-details-panel">
+          <div class="item-meta-line">الموقع: ${safeLocation}</div>
+          <div class="item-specs">${safeSpecs}</div>
+          ${photosHtml}
+        </div>
 
         <div class="card-bottom">
-          <span>رقم البائع: ${escapeHtml(item.phone || "")} • حق الموقع عند البيع: 100 ريال سعودي</span>
+          <span>تواصل آمن عبر الموقع</span>
           <div class="card-actions-group">
-            <button type="button" class="btn btn-blue" onclick="openSendMessageModal('${escapeHtml(item.id)}', '${escapeHtml(item.name || "")}')">إرسال رسالة</button>
+            <button type="button" class="btn btn-amber" onclick="openOfferPriceModal('${escapeHtml(item.id)}', '${safeTitle}')">طرح قيمة العقار</button>
+            <button type="button" class="btn btn-red" onclick="openPhoneOathModal('${escapeHtml(item.id)}')">معرفة رقم المعلن</button>
+            <button type="button" class="btn btn-blue" onclick="openSendMessageModal('${escapeHtml(item.id)}', '${safeTitle}')">إرسال رسالة</button>
             <div class="owner-controls">
               <button type="button" class="btn btn-green" onclick="startEditItem('${escapeHtml(item.id)}')">تعديل</button>
               <button type="button" class="btn btn-red" onclick="deleteItemById('${escapeHtml(item.id)}')">حذف</button>
@@ -966,9 +1155,6 @@ function loadListings() {
     });
 }
 
-if (sessionStorage.getItem(OATH_KEY) === "1") {
-  document.body.classList.add("oath-unlocked");
-}
 loadListings();
 </script>
 </body>
